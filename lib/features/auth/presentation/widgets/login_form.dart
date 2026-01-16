@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:insurance_flutter/core/constants/app_colors.dart';
-import 'package:insurance_flutter/utils/captcha.dart';
+import 'package:insurance_flutter/features/auth/presentation/widgets/recaptcha_widget.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -14,40 +14,42 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _captchaInputController = TextEditingController();
   
-  String _captchaText = CaptchaUtils.generateCaptcha();
+  final _recaptchaController = RecaptchaController(); // New Controller
   bool _captchaError = false;
+  bool _isLoading = false; // New loading state
 
-  void _refreshCaptcha() {
-    setState(() {
-      _captchaText = CaptchaUtils.generateCaptcha();
-      _captchaInputController.clear();
-      _captchaError = false;
-    });
-  }
 
-  void _handleSubmit() {
-    if (_captchaInputController.text != _captchaText) {
-      setState(() {
-        _captchaError = true;
-      });
-      return;
-    }
+  Future<void> _handleSubmit() async {
+    setState(() => _isLoading = true);
 
     if (_usernameController.text.isNotEmpty && _passwordController.text.isNotEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Login Successful!')),
-      );
-      // Navigate to dashboard page
+      try {
+        final token = await _recaptchaController.execute();
+        
+        if (token != null) {
+          debugPrint('reCAPTCHA Success: Token received: \${token.substring(0, 10)}...');
+          // Token received, proceed with login (mock)
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Login Successful!')),
+          );
+        } else {
+          debugPrint('reCAPTCHA Failed: Token is null');
+          setState(() => _captchaError = true);
+        }
+      } catch (e) {
+        debugPrint('reCAPTCHA Error: \$e');
+        setState(() => _captchaError = true);
+      }
     }
+    
+    if (mounted) setState(() => _isLoading = false);
   }
 
   @override
   void dispose() {
     _usernameController.dispose();
     _passwordController.dispose();
-    _captchaInputController.dispose();
     super.dispose();
   }
 
@@ -94,90 +96,17 @@ class _LoginFormState extends State<LoginForm> {
         ),
         const SizedBox(height: 16),
 
-        // Captcha
-        Text(
-          'Captcha',
-          style: GoogleFonts.inter(
-            fontWeight: FontWeight.w600,
-            color: Colors.grey.shade700,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Row(
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              decoration: BoxDecoration(
-                color: Colors.grey.shade100,
-                border: Border.all(color: Colors.grey.shade300, width: 2),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Text(
-                _captchaText,
-                style: GoogleFonts.inter(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey.shade700,
-                  decoration: TextDecoration.lineThrough,
-                  letterSpacing: 6,
-                ),
-              ),
-            ),
-            const SizedBox(width: 8),
-            InkWell(
-              onTap: _refreshCaptcha,
-              borderRadius: BorderRadius.circular(8),
-              child: Container(
-                height: 48,
-                width: 48,
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
-                  border: Border.all(color: Colors.grey.shade300, width: 2),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Icon(LucideIcons.refreshCw, color: Colors.grey),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 12),
-        SizedBox(
-          height: 48,
-          child: TextField(
-            controller: _captchaInputController,
-            onChanged: (_) => setState(() => _captchaError = false),
-            decoration: InputDecoration(
-              hintText: 'Enter the captcha shown above',
-              filled: true,
-              fillColor: Colors.white,
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(
-                  color: _captchaError ? Colors.red.shade500 : Colors.grey.shade200,
-                  width: 2,
-                ),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(
-                  color: _captchaError ? Colors.red.shade500 : Colors.grey.shade200,
-                  width: 2,
-                ),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(color: AppColors.primary, width: 2),
-              ),
-            ),
-          ),
-        ),
+        // reCAPTCHA (Invisible)
+        RecaptchaWidget(controller: _recaptchaController),
+        
         if (_captchaError)
           Padding(
-            padding: const EdgeInsets.only(top: 2),
-            child: Text(
-              'Incorrect captcha. Please try again.',
-              style: GoogleFonts.inter(color: Colors.red.shade500, fontSize: 12),
+            padding: const EdgeInsets.only(top: 8),
+            child: Center(
+              child: Text(
+                'Verification failed. Please try again.',
+                style: GoogleFonts.inter(color: Colors.red.shade500, fontSize: 12),
+              ),
             ),
           ),
 
@@ -188,7 +117,7 @@ class _LoginFormState extends State<LoginForm> {
           width: double.infinity,
           height: 44,
           child: ElevatedButton(
-            onPressed: _handleSubmit,
+            onPressed: _isLoading ? null : _handleSubmit, // Disable while loading
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.transparent, 
               shadowColor: Colors.transparent,
@@ -197,8 +126,10 @@ class _LoginFormState extends State<LoginForm> {
             ),
             child: Ink(
               decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [AppColors.gradientStart, AppColors.gradientEnd],
+                gradient: LinearGradient(
+                  colors: _isLoading 
+                    ? [Colors.grey, Colors.grey.shade700] 
+                    : [AppColors.gradientStart, AppColors.gradientEnd],
                 ),
                 borderRadius: BorderRadius.circular(8),
                 boxShadow: const [
@@ -212,14 +143,20 @@ class _LoginFormState extends State<LoginForm> {
               ),
               child: Container(
                 alignment: Alignment.center,
-                child: Text(
-                  'Log In',
-                  style: GoogleFonts.inter(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
-                ),
+                child: _isLoading 
+                  ? const SizedBox(
+                      width: 24, 
+                      height: 24, 
+                      child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)
+                    )
+                  : Text(
+                      'Log In',
+                      style: GoogleFonts.inter(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
               ),
             ),
           ),
