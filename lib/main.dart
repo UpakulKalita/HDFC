@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:insurance_flutter/pages/login_page.dart';
+import 'package:insurance_flutter/features/auth/presentation/pages/login_page.dart';
 
 void main() {
   runApp(const InsuranceApp());

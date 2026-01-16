@@ -17,4 +17,3 @@ A Flutter-based frontend for the Insurance Planner application.
 ## Features
 - Login Page (Implemented)
 - Customer Details (Planned)
-- Insurance Recommendations (Planned)
