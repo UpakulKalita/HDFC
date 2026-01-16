@@ -12,7 +12,6 @@ A Flutter-based frontend for the Insurance Planner application.
 2.  **Run the App**:
     - Web: `flutter run -d chrome`
     - Windows: `flutter run -d windows`
-    - Mobile: `flutter run` (requires emulator/device)
 
 ## Features
 - Login Page (Implemented)
