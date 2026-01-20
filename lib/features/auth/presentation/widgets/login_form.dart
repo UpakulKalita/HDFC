@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:insurance_flutter/core/constants/app_colors.dart';
 import 'package:insurance_flutter/features/auth/presentation/widgets/recaptcha_widget.dart';
+import 'package:insurance_flutter/features/auth/data/services/auth_service.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -16,6 +17,7 @@ class _LoginFormState extends State<LoginForm> {
   final _passwordController = TextEditingController();
   
   final _recaptchaController = RecaptchaController(); // New Controller
+  final _authService = AuthService(); // API Service
   bool _captchaError = false;
   bool _isLoading = false; // New loading state
 
@@ -29,10 +31,35 @@ class _LoginFormState extends State<LoginForm> {
         
         if (token != null) {
           debugPrint('reCAPTCHA Success: Token received: \${token.substring(0, 10)}...');
-          // Token received, proceed with login (mock)
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Login Successful!')),
-          );
+          debugPrint('reCAPTCHA Success: Token received: ${token.substring(0, 10)}...');
+          
+          // Call Backend
+          try {
+            await _authService.login(
+              _usernameController.text,
+              _passwordController.text,
+            );
+            
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Login Successful! Redirecting...'),
+                  backgroundColor: Colors.green,
+                ),
+              );
+              // Navigation logic would go here
+            }
+          } catch (e) {
+            debugPrint('API Login Error: $e');
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(e.toString().replaceAll('Exception: ', '')),
+                  backgroundColor: Colors.red,
+                ),
+              );
+            }
+          }
         } else {
           debugPrint('reCAPTCHA Failed: Token is null');
           setState(() => _captchaError = true);
