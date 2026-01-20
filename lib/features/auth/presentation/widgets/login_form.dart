@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:insurance_flutter/core/constants/app_colors.dart';
+import 'package:insurance_flutter/core/constants/app_colors.dart'; // Ensure this points to your new AppColors file
 import 'package:insurance_flutter/features/auth/presentation/widgets/recaptcha_widget.dart';
 import 'package:insurance_flutter/features/auth/data/services/auth_service.dart';
 
@@ -16,11 +16,10 @@ class _LoginFormState extends State<LoginForm> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   
-  final _recaptchaController = RecaptchaController(); // New Controller
-  final _authService = AuthService(); // API Service
+  final _recaptchaController = RecaptchaController(); 
+  final _authService = AuthService(); 
   bool _captchaError = false;
-  bool _isLoading = false; // New loading state
-
+  bool _isLoading = false; 
 
   Future<void> _handleSubmit() async {
     setState(() => _isLoading = true);
@@ -30,7 +29,6 @@ class _LoginFormState extends State<LoginForm> {
         final token = await _recaptchaController.execute();
         
         if (token != null) {
-          debugPrint('reCAPTCHA Success: Token received: \${token.substring(0, 10)}...');
           debugPrint('reCAPTCHA Success: Token received: ${token.substring(0, 10)}...');
           
           // Call Backend
@@ -44,7 +42,7 @@ class _LoginFormState extends State<LoginForm> {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text('Login Successful! Redirecting...'),
-                  backgroundColor: Colors.green,
+                  backgroundColor: AppColors.success, // Updated to Theme Success
                 ),
               );
               // Navigation logic would go here
@@ -55,7 +53,7 @@ class _LoginFormState extends State<LoginForm> {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(e.toString().replaceAll('Exception: ', '')),
-                  backgroundColor: Colors.red,
+                  backgroundColor: AppColors.error, // Updated to Theme Error
                 ),
               );
             }
@@ -65,7 +63,7 @@ class _LoginFormState extends State<LoginForm> {
           setState(() => _captchaError = true);
         }
       } catch (e) {
-        debugPrint('reCAPTCHA Error: \$e');
+        debugPrint('reCAPTCHA Error: $e');
         setState(() => _captchaError = true);
       }
     }
@@ -91,7 +89,7 @@ class _LoginFormState extends State<LoginForm> {
           style: GoogleFonts.inter(
             fontSize: 28,
             fontWeight: FontWeight.bold,
-            color: AppColors.textDark,
+            color: AppColors.navyBlue, // Updated to Brand Navy
           ),
         ),
         const SizedBox(height: 4),
@@ -132,7 +130,7 @@ class _LoginFormState extends State<LoginForm> {
             child: Center(
               child: Text(
                 'Verification failed. Please try again.',
-                style: GoogleFonts.inter(color: Colors.red.shade500, fontSize: 12),
+                style: GoogleFonts.inter(color: AppColors.error, fontSize: 12),
               ),
             ),
           ),
@@ -144,7 +142,7 @@ class _LoginFormState extends State<LoginForm> {
           width: double.infinity,
           height: 44,
           child: ElevatedButton(
-            onPressed: _isLoading ? null : _handleSubmit, // Disable while loading
+            onPressed: _isLoading ? null : _handleSubmit, 
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.transparent, 
               shadowColor: Colors.transparent,
@@ -153,16 +151,15 @@ class _LoginFormState extends State<LoginForm> {
             ),
             child: Ink(
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: _isLoading 
-                    ? [Colors.grey, Colors.grey.shade700] 
-                    : [AppColors.gradientStart, AppColors.gradientEnd],
-                ),
+                // Logic updated to use AppColors.primaryGradient directly
+                gradient: _isLoading 
+                    ? const LinearGradient(colors: [AppColors.textLight, AppColors.textGrey]) 
+                    : AppColors.primaryGradient,
                 borderRadius: BorderRadius.circular(8),
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
-                    color: Color.fromRGBO(0, 76, 143, 0.5),
-                    offset: Offset(0, 10),
+                    color: AppColors.primaryBlue.withOpacity(0.4), // Updated Shadow
+                    offset: const Offset(0, 10),
                     blurRadius: 25,
                     spreadRadius: -5,
                   )
@@ -194,7 +191,7 @@ class _LoginFormState extends State<LoginForm> {
           child: Text(
             'Forgot your password?',
             style: GoogleFonts.inter(
-              color: AppColors.primary,
+              color: AppColors.primaryBlue, // Updated to Primary Blue
               fontSize: 13,
             ),
           ),
@@ -228,7 +225,7 @@ class _InputField extends StatelessWidget {
           label,
           style: GoogleFonts.inter(
             fontWeight: FontWeight.w600,
-            color: Colors.grey.shade700,
+            color: AppColors.textDark, // Updated to Dark Text
           ),
         ),
         const SizedBox(height: 8),
@@ -239,22 +236,24 @@ class _InputField extends StatelessWidget {
               child: TextField(
                 controller: controller,
                 obscureText: isPassword,
+                style: const TextStyle(color: AppColors.textDark), // Ensure input text is dark
                 decoration: InputDecoration(
                   hintText: hint,
+                  hintStyle: const TextStyle(color: AppColors.textLight), // Updated Hint color
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: AppColors.surface, // Use Surface white
                   contentPadding: const EdgeInsets.only(left: 44, right: 16),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Colors.grey.shade200, width: 2),
+                    borderSide: const BorderSide(color: AppColors.border, width: 2), // Updated Border
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Colors.grey.shade200, width: 2),
+                    borderSide: const BorderSide(color: AppColors.border, width: 2), // Updated Border
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(color: AppColors.primary, width: 2),
+                    borderSide: const BorderSide(color: AppColors.primaryBlue, width: 2), // Updated Focus Color
                   ),
                 ),
               ),
@@ -262,7 +261,7 @@ class _InputField extends StatelessWidget {
             Positioned(
               left: 12,
               top: 14,
-              child: Icon(icon, color: Colors.grey.shade400, size: 20),
+              child: Icon(icon, color: AppColors.textLight, size: 20), // Updated Icon Color
             ),
           ],
         ),
