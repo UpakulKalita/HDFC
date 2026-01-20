@@ -15,16 +15,18 @@ class LoginCard extends StatelessWidget {
 
         return Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.surface, // Replaced Colors.white
             borderRadius: BorderRadius.circular(24),
             boxShadow: [
+              // Deep shadow for depth (using Navy instead of harsh Black)
               BoxShadow(
-                color: Colors.black.withOpacity(0.5),
+                color: AppColors.navyBlue.withOpacity(0.25), 
                 blurRadius: 50,
                 offset: const Offset(0, 25),
               ),
+              // Ambient glow (using Primary Blue)
               BoxShadow(
-                color: Colors.blue.withOpacity(0.3),
+                color: AppColors.primaryBlue.withOpacity(0.15), 
                 blurRadius: 40,
                 offset: const Offset(0, 0),
               ),
@@ -40,11 +42,8 @@ class LoginCard extends StatelessWidget {
                 child: Container(
                   height: isMobile ? null : 600,
                   decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [AppColors.gradientStart, AppColors.gradientEnd],
-                    ),
+                    // Used the standardized gradient from AppColors
+                    gradient: AppColors.primaryGradient,
                   ),
                   child: const LeftSection(),
                 ),
