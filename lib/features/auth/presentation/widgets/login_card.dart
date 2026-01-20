@@ -1,69 +1,64 @@
 import 'package:flutter/material.dart';
-
-import '../controller/auth_controller.dart';
-import 'brand_panel.dart';
-import 'form_panel.dart';
-import 'hdfc_logo.dart';
+import 'package:insurance_flutter/features/auth/presentation/widgets/left_section.dart';
+import 'package:insurance_flutter/features/auth/presentation/widgets/login_form.dart';
+import 'package:insurance_flutter/core/constants/app_colors.dart';
 
 class LoginCard extends StatelessWidget {
-  final AuthController controller;
-  final VoidCallback onLoginSuccess;
-
-  const LoginCard({
-    super.key,
-    required this.controller,
-    required this.onLoginSuccess,
-  });
+  const LoginCard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Responsive Layout
     return LayoutBuilder(
       builder: (context, constraints) {
-        final isMobile = constraints.maxWidth < 850;
+        final isMobile = constraints.maxWidth < 768;
 
         return Container(
-          clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(24),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.3),
-                blurRadius: 30,
-                offset: const Offset(0, 15),
+                color: Colors.black.withOpacity(0.5),
+                blurRadius: 50,
+                offset: const Offset(0, 25),
+              ),
+              BoxShadow(
+                color: Colors.blue.withOpacity(0.3),
+                blurRadius: 40,
+                offset: const Offset(0, 0),
               ),
             ],
           ),
-          child: IntrinsicHeight(
-            child: Flex(
-              direction: isMobile ? Axis.vertical : Axis.horizontal,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // Left brand panel
-                if (!isMobile)
-                  const Expanded(
-                    flex: 9,
-                    child: BrandPanel(),
+          clipBehavior: Clip.antiAlias,
+          child: Flex(
+            direction: isMobile ? Axis.vertical : Axis.horizontal,
+            children: [
+              // Left Section
+              Expanded(
+                flex: isMobile ? 0 : 1,
+                child: Container(
+                  height: isMobile ? null : 600,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [AppColors.gradientStart, AppColors.gradientEnd],
+                    ),
                   ),
-
-                // Mobile header
-                if (isMobile)
-                  Container(
-                    padding: const EdgeInsets.all(24),
-                    color: const Color(0xFF003366),
-                    child: const HdfcLogo(),
-                  ),
-
-                // Right form panel
-                Expanded(
-                  flex: 11,
-                  child: FormPanel(
-                    controller: controller,
-                    onLoginSuccess: onLoginSuccess,
-                  ),
+                  child: const LeftSection(),
                 ),
-              ],
-            ),
+              ),
+              // Right Section
+              Expanded(
+                flex: isMobile ? 0 : 1,
+                child: Container(
+                  height: isMobile ? null : 600,
+                  padding: const EdgeInsets.all(32),
+                  child: const LoginForm(),
+                ),
+              ),
+            ],
           ),
         );
       },
