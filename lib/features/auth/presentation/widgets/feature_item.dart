@@ -18,15 +18,14 @@ class FeatureItem extends StatelessWidget {
     return Row(
       children: [
         Container(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.white.withOpacity(0.1)),
+            color: Colors.white.withOpacity(0.2),
+            borderRadius: BorderRadius.circular(8),
           ),
-          child: Icon(icon, color: Colors.white, size: 22),
+          child: Icon(icon, color: Colors.white, size: 20),
         ),
-        const SizedBox(width: 16),
+        const SizedBox(width: 12),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -35,19 +34,17 @@ class FeatureItem extends StatelessWidget {
               style: GoogleFonts.inter(
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
-                fontSize: 15,
               ),
             ),
-            const SizedBox(height: 2),
             Text(
               subtitle,
               style: GoogleFonts.inter(
-                fontSize: 13,
-                color: Colors.white70,
+                fontSize: 14,
+                color: Colors.blue.shade100,
               ),
             ),
           ],
-        )
+        ),
       ],
     );
   }
