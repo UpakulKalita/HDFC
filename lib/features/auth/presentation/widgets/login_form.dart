@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:insurance_flutter/core/constants/app_colors.dart';
 import 'package:insurance_flutter/features/auth/presentation/widgets/recaptcha_widget.dart';
+import 'package:insurance_flutter/features/dashboard/presentation/pages/dashboard_page.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -30,9 +31,15 @@ class _LoginFormState extends State<LoginForm> {
         if (token != null) {
           debugPrint('reCAPTCHA Success: Token received: \${token.substring(0, 10)}...');
           // Token received, proceed with login (mock)
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Login Successful!')),
-          );
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Login Successful!')),
+            );
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const DashboardPage()),
+            );
+          }
         } else {
           debugPrint('reCAPTCHA Failed: Token is null');
           setState(() => _captchaError = true);
