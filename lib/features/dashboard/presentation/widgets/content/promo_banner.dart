@@ -14,10 +14,10 @@ class _PromoBannerState extends State<PromoBanner> {
   int _currentIndex = 0;
 
   final List<String> banners = [
-    "assets/banners/1.png",
-    "assets/banners/2.png",
-    "assets/banners/3.png",
-    "assets/banners/4.png",
+    "../assets/banners/1.png",
+    "../assets/banners/2.png",
+    "../assets/banners/3.png",
+    "../assets/banners/4.png",
   ];
 
   Timer? _timer;

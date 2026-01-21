@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // Assuming these exist in your project structure
 import '/../core/constants/app_colors.dart';
@@ -306,7 +307,7 @@ class _SidebarLogo extends StatelessWidget {
             isCollapsed ? MainAxisAlignment.center : MainAxisAlignment.start,
         children: [
           Image.asset(
-            "assets/images/hdfc_logo2.png",
+            "../assets/logo.webp",
             height: isCollapsed ? 36 : 40,
             fit: BoxFit.contain,
           ),
@@ -318,22 +319,13 @@ class _SidebarLogo extends StatelessWidget {
     children: [
       // 1. Dual-Tone Title (More "Logo-like")
       RichText(
-        text: const TextSpan(
-          style: TextStyle(
-            fontFamily: 'Segoe UI', // Falls back to default if unavailable
-            fontSize: 19, 
+        text: TextSpan(
+          text: "HDFC BANK",
+          style: GoogleFonts.inter(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: const Color(0xFF0F172A),
           ),
-          children: [
-            TextSpan(
-              text: "HDFC INSURE",
-              style: TextStyle(
-                fontWeight: FontWeight.w900, // Extra Bold
-                color: Color(0xFF0F172A),    // Very Dark Slate (Almost Black)
-                letterSpacing: -0.5,         // Tighter spacing for "Blocky" look
-              ),
-            ),
-            
-          ],
         ),
       ),
       
@@ -342,7 +334,7 @@ class _SidebarLogo extends StatelessWidget {
       // 2. Premium Subtitle style
       // Making it Uppercase with wide spacing makes it look high-end
       const Text(
-        "SMART PROTECT", 
+        "Insurance Portal", 
         style: TextStyle(
           fontWeight: FontWeight.w600,
           fontSize: 10,
