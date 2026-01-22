@@ -35,11 +35,22 @@ class AuthController extends ChangeNotifier {
     notifyListeners();
   }
 
+  // Basic email validation regex
+  static final RegExp _emailRegex = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
+
+  /// Validation Error Getters
+  String? get emailInputError {
+    final text = usernameController.text.trim();
+    if (text.isEmpty) return null; // No error if empty (yet)
+    if (!_emailRegex.hasMatch(text)) {
+      return "Invalid email format";
+    }
+    return null;
+  }
+
   /// Validate username & password
   bool validateFields() {
-    // Basic email validation regex
-    final emailRegex = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
-    return emailRegex.hasMatch(usernameController.text.trim()) &&
+    return _emailRegex.hasMatch(usernameController.text.trim()) &&
         passwordController.text.isNotEmpty;
   }
 
