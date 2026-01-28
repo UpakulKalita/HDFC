@@ -1,0 +1,148 @@
+{
+    "Smart Health Plus": {
+        "description": "Smart Health Plus is our most comprehensive health insurance plan designed to provide 360-degree protection for you and your family. With a wide network of 10,000+ hospitals and a high claim settlement ratio, it ensures peace of mind during medical emergencies.",
+        "benefits": [
+            "Cashless treatment at 10,000+ network hospitals",
+            "No sub-limits on room rent",
+            "Coverage for pre and post hospitalization expenses",
+            "Annual health check-ups for all insured members"
+        ],
+        "inclusions": [
+            "In-patient hospitalization expenses",
+            "Day care procedures",
+            "Ambulance cover",
+            "Organ donor expenses",
+            "Maternity and newborn cover",
+            "AYUSH treatments"
+        ],
+        "exclusions": [
+            "Pre-existing diseases (covered after 2 years)",
+            "Self-inflicted injuries",
+            "Cosmetic or plastic surgery",
+            "Injury due to war or nuclear weapons"
+        ],
+        "faqs": [
+            {
+                "question": "What is the waiting period for pre-existing diseases?",
+                "answer": "The waiting period for pre-existing diseases is 2 years from the date of policy issuance."
+            },
+            {
+                "question": "Is there a limit on room rent?",
+                "answer": "No, this plan comes with no sub-limits on room rent, allowing you to choose any room category."
+            }
+        ]
+    },
+    "Secure Drive Pro": {
+        "description": "Secure Drive Pro offers ultimate protection for your vehicle with extensive coverage and zero depreciation benefits. It's designed for drivers who want the best-in-class service and hassle-free claim settlements.",
+        "benefits": [
+            "Zero depreciation cover for parts replacement",
+            "Engine protection against water ingression",
+            "Roadside assistance available 24/7",
+            "Consumables cover included"
+        ],
+        "inclusions": [
+            "Own damage cover",
+            "Third-party liability cover",
+            "Personal accident cover for owner-driver",
+            "Protection against theft and natural calamities"
+        ],
+        "exclusions": [
+            "Wear and tear and general aging of the vehicle",
+            "Mechanical or electrical breakdown",
+            "Driving without a valid license",
+            "Driving under the influence of alcohol"
+        ],
+        "faqs": [
+            {
+                "question": "What is NCB (No Claim Bonus)?",
+                "answer": "NCB is a discount given on the premium for every claim-free year."
+            },
+            {
+                "question": "What does Zero Depreciation cover?",
+                "answer": "It ensures that you receive the full claim amount without any deduction for depreciation on parts."
+            }
+        ]
+    },
+    "Ultimate Life Shield": {
+        "description": "Ultimate Life Shield provides a robust financial safety net for your family. It offers high sum insured at affordable premiums, ensuring your loved ones are protected in your absence.",
+        "benefits": [
+            "High sum insured up to ₹5 Crores",
+            "Terminal illness benefit included",
+            "Flexible payout options (Lump sum or Monthly)",
+            "Tax benefits under Section 80C"
+        ],
+        "inclusions": [
+            "Death benefit payout",
+            "Accidental death benefit rider",
+            "Critical illness rider",
+            "Waiver of premium on disability"
+        ],
+        "exclusions": [
+            "Suicide within the first 12 months of the policy",
+            "Death due to involvement in criminal acts",
+            "Death due to participation in hazardous sports"
+        ],
+        "faqs": [
+            {
+                "question": "Till what age can I get life cover?",
+                "answer": "You can get cover up to the age of 85 years depending on the policy term chosen."
+            },
+            {
+                "question": "Can I increase my cover later?",
+                "answer": "Yes, some plans offer the option to increase the sum insured at key life stages like marriage or childbirth."
+            }
+        ]
+    },
+    "Superior Life Plan": {
+        "description": "Superior Life Plan is a high-value term insurance designed for individuals who want maximum protection with flexible options. It provides comprehensive coverage against life's uncertainties.",
+        "benefits": [
+            "Death benefit with multiple payout options",
+            "Critical illness rider included",
+            "Waiver of premium on accidental total permanent disability",
+            "Special rates for female lives and non-smokers"
+        ],
+        "inclusions": [
+            "Natural death coverage",
+            "Accidental death coverage (optional rider)",
+            "Terminal illness benefit",
+            "Total and permanent disability cover"
+        ],
+        "exclusions": [
+            "Self-inflicted injury or suicide",
+            "Death due to war or civil commotion",
+            "Pre-existing conditions unless declared and accepted"
+        ],
+        "faqs": [
+            {
+                "question": "Can I add riders to this plan?",
+                "answer": "Yes, you can add Accidental Death Benefit, Critical Illness, and Waiver of Premium riders."
+            }
+        ]
+    },
+    "Critical Care Plus": {
+        "description": "Critical Care Plus is a specialized health plan that provides a lump sum benefit on the diagnosis of major critical illnesses, helping you manage both medical and living expenses during recovery.",
+        "benefits": [
+            "Lump sum payout on first diagnosis of 32 critical illnesses",
+            "Financial security to maintain lifestyle during treatment",
+            "Tax benefits under Section 80D",
+            "No medical checkup up to 45 years of age"
+        ],
+        "inclusions": [
+            "Cancer of specified severity",
+            "Myocardial Infarction (First Heart Attack)",
+            "Open Chest CABG",
+            "Kidney Failure requiring regular dialysis"
+        ],
+        "exclusions": [
+            "Any illness diagnosed within the first 90 days (waiting period)",
+            "Illnesses due to pre-existing conditions (covered after 4 years)",
+            "Self-inflicted injuries or attempted suicide"
+        ],
+        "faqs": [
+            {
+                "question": "How many illnesses are covered?",
+                "answer": "This plan covers 32 major critical illnesses."
+            }
+        ]
+    }
+}

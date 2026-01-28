@@ -1,0 +1,182 @@
+[
+    {
+        "title": "Smart Health Plus",
+        "imageUrl": "https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80&w=600",
+        "price": "₹2,499/mo",
+        "coverage": "₹5 Lakhs",
+        "claimRatio": "98.5%",
+        "hospitals": "10k+",
+        "waitingPeriod": "2 Yrs",
+        "features": [
+            "Covers 100% of hospitalization expenses.",
+            "Includes dental and vision care treatments.",
+            "Full support for mental well-being.",
+            "Access to doctors 24/7 anytime."
+        ],
+        "tags": [
+            "Tax Saver",
+            "No Medical Test"
+        ],
+        "isPopular": true
+    },
+    {
+        "title": "Family Health Shield",
+        "imageUrl": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&q=80&w=600",
+        "price": "₹3,999/mo",
+        "coverage": "₹10 Lakhs",
+        "claimRatio": "99.2%",
+        "hospitals": "12k+",
+        "waitingPeriod": "1 Yr",
+        "features": [
+            "Complete protection for your entire family.",
+            "Coverage for all maternity related expenses.",
+            "Critical illness protection included.",
+            "Annual free health checkup for all."
+        ],
+        "tags": [
+            "Best Seller",
+            "Maternity"
+        ],
+        "isPopular": false
+    },
+    {
+        "title": "Senior Care Plus",
+        "imageUrl": "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=600",
+        "price": "₹4,499/mo",
+        "coverage": "₹7.5 Lakhs",
+        "claimRatio": "97.8%",
+        "hospitals": "8k+",
+        "waitingPeriod": "3 Yrs",
+        "features": [
+            "Specialized care designed for seniors.",
+            "Covers pre-existing diseases from day 1.",
+            "Home healthcare services included.",
+            "Emergency ambulance costs covered."
+        ],
+        "tags": [
+            "Senior Special",
+            "AYUSH"
+        ],
+        "isPopular": false
+    },
+    {
+        "title": "Critical Illness Cover",
+        "imageUrl": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=600",
+        "price": "₹1,299/mo",
+        "coverage": "₹20 Lakhs",
+        "claimRatio": "99.0%",
+        "hospitals": "15k+",
+        "waitingPeriod": "90 Days",
+        "features": [
+            "Lump sum payout on diagnosis.",
+            "Covers 30+ critical illnesses.",
+            "Income replacement benefit included.",
+            "Second medical opinion service."
+        ],
+        "tags": [
+            "High Cover",
+            "Lump Sum"
+        ],
+        "isPopular": false
+    },
+    {
+        "title": "Young Star Policy",
+        "imageUrl": "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=600",
+        "price": "₹999/mo",
+        "coverage": "₹3 Lakhs",
+        "claimRatio": "98.2%",
+        "hospitals": "9k+",
+        "waitingPeriod": "1 Yr",
+        "features": [
+            "Low premium for young adults.",
+            "Automatic restoration of sum insured.",
+            "Road ambulance charges covered.",
+            "Wellness program rewards included."
+        ],
+        "tags": [
+            "Youth Special",
+            "Low Cost"
+        ],
+        "isPopular": false
+    },
+    {
+        "title": "Diabetes Safe Plan",
+        "imageUrl": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=600",
+        "price": "₹2,999/mo",
+        "coverage": "₹5 Lakhs",
+        "claimRatio": "97.5%",
+        "hospitals": "8.5k+",
+        "waitingPeriod": "Day 1",
+        "features": [
+            "Diabetes coverage from Day 1.",
+            "Regular health monitoring support.",
+            "Diet and nutrition counseling.",
+            "Dialysis expenses covered."
+        ],
+        "tags": [
+            "Disease Specific",
+            "Day 1 Cover"
+        ],
+        "isPopular": false
+    },
+    {
+        "title": "Women Care Policy",
+        "imageUrl": "https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?auto=format&fit=crop&q=80&w=600",
+        "price": "₹1,899/mo",
+        "coverage": "₹10 Lakhs",
+        "claimRatio": "98.7%",
+        "hospitals": "11k+",
+        "waitingPeriod": "2 Yrs",
+        "features": [
+            "Comprehensive coverage for women.",
+            "Maternity and newborn cover.",
+            "Cancer screening checkups.",
+            "Wellness and fitness programs."
+        ],
+        "tags": [
+            "Women Special",
+            "Wellness"
+        ],
+        "isPopular": false
+    },
+    {
+        "title": "Super Top Up Plan",
+        "imageUrl": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600",
+        "price": "₹599/mo",
+        "coverage": "₹25 Lakhs",
+        "claimRatio": "99.5%",
+        "hospitals": "14k+",
+        "waitingPeriod": "Nil",
+        "features": [
+            "Enhance your existing coverage.",
+            "High deductible options available.",
+            "No pre-policy medical checkup.",
+            "Covers expenses above threshold."
+        ],
+        "tags": [
+            "Booster",
+            "High Cover"
+        ],
+        "isPopular": false
+    },
+    {
+        "title": "Arogya Sanjeevani",
+        "imageUrl": "https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&q=80&w=600",
+        "price": "₹1,499/mo",
+        "coverage": "₹5 Lakhs",
+        "claimRatio": "98.0%",
+        "hospitals": "10k+",
+        "waitingPeriod": "4 Yrs",
+        "features": [
+            "Standard health insurance product.",
+            "Cumulative bonus on claim-free years.",
+            "Cataract treatment limit defined.",
+            "AYUSH treatment expenses covered."
+        ],
+        "tags": [
+            "Standard",
+            "Govt Regulated"
+        ],
+        "isPopular": false
+    }
+]

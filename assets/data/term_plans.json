@@ -1,0 +1,122 @@
+[
+    {
+        "title": "Click 2 Protect Super",
+        "imageUrl": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=600",
+        "price": "₹950/mo",
+        "coverage": "₹1 Crore",
+        "claimRatio": "99.3%",
+        "term": "40 Yrs",
+        "waitingPeriod": "Instant",
+        "features": [
+            "Pure term protection plan.",
+            "Accidental death benefit rider.",
+            "Terminal illness cover built-in.",
+            "Waiver of premium on disability."
+        ],
+        "tags": [
+            "Best Seller",
+            "High Cover"
+        ],
+        "isPopular": true
+    },
+    {
+        "title": "Life Shield Plus",
+        "imageUrl": "https://images.unsplash.com/photo-1516733968668-dbdce39c4651?auto=format&fit=crop&q=80&w=600",
+        "price": "₹1,250/mo",
+        "coverage": "₹2 Crores",
+        "claimRatio": "98.9%",
+        "term": "50 Yrs",
+        "waitingPeriod": "7 Days",
+        "features": [
+            "Extended coverage till 99 years.",
+            "Return of premium option.",
+            "Critical illness protection.",
+            "Flexible payout options."
+        ],
+        "tags": [
+            "Whole Life",
+            "Premium Return"
+        ],
+        "isPopular": false
+    },
+    {
+        "title": "Saral Jeevan Bima",
+        "imageUrl": "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?auto=format&fit=crop&q=80&w=600",
+        "price": "₹450/mo",
+        "coverage": "₹25 Lakhs",
+        "claimRatio": "97.5%",
+        "term": "20 Yrs",
+        "waitingPeriod": "30 Days",
+        "features": [
+            "Standard term life insurance.",
+            "Simplified underwriting process.",
+            "No medical check-up required.",
+            "Affordable premiums for all."
+        ],
+        "tags": [
+            "Standard",
+            "Govt Regulated"
+        ],
+        "isPopular": false
+    },
+    {
+        "title": "Income Replacement Term",
+        "imageUrl": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=600",
+        "price": "₹1,100/mo",
+        "coverage": "₹1Cr + Income",
+        "claimRatio": "98.5%",
+        "term": "30 Yrs",
+        "waitingPeriod": "Instant",
+        "features": [
+            "Lump sum plus monthly income.",
+            "Ensures family lifestyle continuity.",
+            "Inflation adjusted payouts.",
+            "Tax benefits under 80C/10(10D)."
+        ],
+        "tags": [
+            "Income Benefit",
+            "Family Secure"
+        ],
+        "isPopular": false
+    },
+    {
+        "title": "Smart Term Pro",
+        "imageUrl": "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?auto=format&fit=crop&q=80&w=600",
+        "price": "₹600/mo",
+        "coverage": "₹50 Lakhs",
+        "claimRatio": "99.0%",
+        "term": "25 Yrs",
+        "waitingPeriod": "15 Days",
+        "features": [
+            "Smart exit option available.",
+            "Increase cover at life stages.",
+            "Spouse cover add-on.",
+            "Special rates for women."
+        ],
+        "tags": [
+            "Flexible",
+            "Smart Exit"
+        ],
+        "isPopular": false
+    },
+    {
+        "title": "Family Protector Plan",
+        "imageUrl": "https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&q=80&w=600",
+        "price": "₹1,500/mo",
+        "coverage": "₹1.5 Crores",
+        "claimRatio": "98.0%",
+        "term": "35 Yrs",
+        "waitingPeriod": "Instant",
+        "features": [
+            "Joint life cover for spouses.",
+            "Discount on joint applications.",
+            "Child education fund security.",
+            "Comprehensive rider suite."
+        ],
+        "tags": [
+            "Joint Life",
+            "Spouse Cover"
+        ],
+        "isPopular": false
+    }
+]

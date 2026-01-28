@@ -1,0 +1,16 @@
+warning - Unused import: 'package:flutter/material.dart' - lib\features\dashboard\data\models\recommendation_model.dart:1:8 - unused_import
+warning - Unused import: 'package:lucide_icons/lucide_icons.dart' - lib\features\dashboard\presentation\pages\dashboard_page.dart:4:8 - unused_import
+warning - Unused import: 'package:insurance_flutter/core/constants/app_colors.dart' - lib\features\dashboard\presentation\pages\dashboard_page.dart:6:8 - unused_import
+warning - Unused import: 'package:insurance_flutter/features/auth/presentation/pages/login_page.dart' - lib\features\dashboard\presentation\pages\dashboard_page.dart:7:8 - unused_import
+warning - Unused import: 'package:insurance_flutter/features/dashboard/presentation/pages/compare_plans_page.dart' - lib\features\dashboard\presentation\pages\dashboard_page.dart:16:8 - unused_import
+warning - Unused import: 'package:insurance_flutter/features/dashboard/presentation/pages/premium_calculator_page.dart' - lib\features\dashboard\presentation\pages\dashboard_page.dart:18:8 - unused_import
+warning - Unused import: 'package:google_fonts/google_fonts.dart' - lib\features\dashboard\presentation\pages\health_plans_page.dart:2:8 - unused_import
+warning - Unused import: 'package:google_fonts/google_fonts.dart' - lib\features\dashboard\presentation\pages\life_insurance_page.dart:2:8 - unused_import
+warning - Unused import: 'package:google_fonts/google_fonts.dart' - lib\features\dashboard\presentation\pages\term_plans_page.dart:2:8 - unused_import
+warning - Unused import: 'package:flutter_animate/flutter_animate.dart' - lib\features\dashboard\presentation\widgets\auto_plan_card.dart:3:8 - unused_import
+warning - Unused import: 'package:flutter_animate/flutter_animate.dart' - lib\features\dashboard\presentation\widgets\health_plan_card.dart:3:8 - unused_import
+warning - Unused import: 'package:insurance_flutter/core/constants/app_colors.dart' - lib\features\dashboard\presentation\widgets\modern_dropdown.dart:4:8 - unused_import
+warning - Unused import: 'package:flutter_animate/flutter_animate.dart' - lib\features\dashboard\presentation\widgets\term_plan_card.dart:3:8 - unused_import
+warning - Unused import: 'package:insurance_flutter/core/constants/app_colors.dart' - lib\features\dashboard\presentation\widgets\top_bar_widget.dart:3:8 - unused_import
+warning - Unused import: 'package:insurance_flutter/features/auth/presentation/pages/login_page.dart' - lib\main.dart:3:8 - unused_import
+warning - Unused import: 'package:flutter/material.dart' - test\widget_test.dart:8:8 - unused_import
