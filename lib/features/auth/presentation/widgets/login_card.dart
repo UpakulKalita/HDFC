@@ -19,12 +19,20 @@ class LoginCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(24),
             boxShadow: [
               BoxShadow(
+<<<<<<< HEAD
                 color: Colors.black.withValues(alpha: 0.5),
+=======
+                color: Colors.black.withOpacity(0.5),
+>>>>>>> 439ddb8cea7c8238ea1b458e68168840ccc34272
                 blurRadius: 50,
                 offset: const Offset(0, 25),
               ),
               BoxShadow(
+<<<<<<< HEAD
                 color: Colors.blue.withValues(alpha: 0.3),
+=======
+                color: Colors.blue.withOpacity(0.3),
+>>>>>>> 439ddb8cea7c8238ea1b458e68168840ccc34272
                 blurRadius: 40,
                 offset: const Offset(0, 0),
               ),

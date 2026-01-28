@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -316,6 +317,19 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
         ),
       ],
+=======
+
+import '../widgets/layout/dashboard_layout.dart';
+import '../widgets/content/dashboard_home_content.dart';
+
+class DashboardPage extends StatelessWidget {
+  const DashboardPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const DashboardLayout(
+      child: DashboardHomeContent(),
+>>>>>>> 439ddb8cea7c8238ea1b458e68168840ccc34272
     );
   }
 }

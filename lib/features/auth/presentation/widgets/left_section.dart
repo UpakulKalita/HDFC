@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:insurance_flutter/features/auth/presentation/widgets/feature_item.dart';
+=======
+import 'package:lucide_icons/lucide_icons.dart';
+import 'package:insurance_flutter/features/auth/presentation/widgets/feature_item.dart';
+import 'package:insurance_flutter/features/auth/presentation/widgets/logo_header.dart';
+import 'package:insurance_flutter/features/auth/presentation/widgets/section_title.dart';
+import 'package:insurance_flutter/features/auth/presentation/widgets/footer_text.dart';
+>>>>>>> 439ddb8cea7c8238ea1b458e68168840ccc34272
 
 class LeftSection extends StatelessWidget {
   const LeftSection({super.key});
@@ -18,7 +26,11 @@ class LeftSection extends StatelessWidget {
             width: 256,
             height: 256,
             decoration: BoxDecoration(
+<<<<<<< HEAD
               color: Colors.white.withValues(alpha: 0.05),
+=======
+              color: Colors.white.withOpacity(0.05),
+>>>>>>> 439ddb8cea7c8238ea1b458e68168840ccc34272
               shape: BoxShape.circle,
             ),
           ),
@@ -30,7 +42,11 @@ class LeftSection extends StatelessWidget {
             width: 192,
             height: 192,
             decoration: BoxDecoration(
+<<<<<<< HEAD
               color: Colors.white.withValues(alpha: 0.05),
+=======
+              color: Colors.white.withOpacity(0.05),
+>>>>>>> 439ddb8cea7c8238ea1b458e68168840ccc34272
               shape: BoxShape.circle,
             ),
           ),
@@ -42,10 +58,15 @@ class LeftSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+<<<<<<< HEAD
+=======
+              
+>>>>>>> 439ddb8cea7c8238ea1b458e68168840ccc34272
               // Header
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+<<<<<<< HEAD
                   Row(
                     children: [
                       Container(
@@ -100,6 +121,23 @@ class LeftSection extends StatelessWidget {
                       fontSize: 18,
                       color: Colors.blue.shade100,
                     ),
+=======
+                  const LogoHeader(
+                     titleColor: Colors.white,
+                     subtitleColor: Color(0xFFBBDEFB), // Blue 100
+                  ),
+
+
+                  // Welcome Text
+                  const SizedBox(height: 48),
+                  SectionTitle(
+                    title: 'Welcome Back!',
+                    subtitle: 'Securing your future with comprehensive insurance solutions',
+                    titleColor: Colors.white,
+                    subtitleColor: Colors.blue.shade100,
+                    titleFontSize: 32,
+                    subtitleFontSize: 18,
+>>>>>>> 439ddb8cea7c8238ea1b458e68168840ccc34272
                   ),
                 ],
               ),
@@ -130,12 +168,20 @@ class LeftSection extends StatelessWidget {
 
               const SizedBox(height: 32),
               // Footer
+<<<<<<< HEAD
               Text(
                 '© 2026 HDFC Bank. All rights reserved.',
                 style: GoogleFonts.inter(
                   color: Colors.blue.shade100,
                   fontSize: 14,
                 ),
+=======
+              FooterText(
+                text: '© 2026 HDFC Bank. All rights reserved.',
+                color: Colors.blue.shade100,
+                fontSize: 14,
+                alignment: Alignment.centerLeft,
+>>>>>>> 439ddb8cea7c8238ea1b458e68168840ccc34272
               ),
             ],
           ),
