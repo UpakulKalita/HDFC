@@ -10,4 +10,16 @@ class AppColors {
   
   static const gradientStart = Color(0xFF004C8F);
   static const gradientEnd = Color(0xFF003870);
+
+  // Dashboard Specific
+  static const backgroundLight = Color(0xFFF0F9FF);
+  static const cardShadow = Color(0xFF3B82F6); // with opacity usually
+  static const textPrimary = Color(0xFF1E293B);
+  static const textSecondary = Color(0xFF64748B);
+  static const iconContainerBg = Color(0xFFEFF6FF);
+  
+  // Status Colors
+  static const success = Color(0xFF10B981);
+  static const warning = Color(0xFFEF4444);
+  static const info = Color(0xFF3B82F6);
 }

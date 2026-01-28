@@ -8,6 +8,7 @@ import 'package:insurance_flutter/features/dashboard/presentation/pages/health_p
 import 'package:insurance_flutter/features/dashboard/presentation/pages/term_plans_page.dart';
 import 'package:insurance_flutter/features/dashboard/presentation/pages/life_insurance_page.dart';
 import 'package:insurance_flutter/features/dashboard/presentation/pages/get_help_page.dart';
+import 'package:insurance_flutter/features/dashboard/presentation/widgets/calculator_hero.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 class PremiumCalculatorPage extends StatefulWidget {
@@ -20,34 +21,37 @@ class PremiumCalculatorPage extends StatefulWidget {
 class _PremiumCalculatorPageState extends State<PremiumCalculatorPage> {
   double _sumInsured = 500000;
   int _age = 25;
-  int _term = 10;
+  int _term = 1;
   bool _includeCriticalIllness = false;
-  bool _includeAccidentCover = false;
+  bool _includeAccidentCover = true;
+  bool _includeHospitalCash = false;
 
   double _calculateMonthlyPremium() {
-    // Basic mock calculation logic
-    double baseRate = (_sumInsured / 1800) * (_age / 18);
-    double termDiscount = 1 - (_term / 120);
-    double addOns = (_includeCriticalIllness ? 180 : 0) + (_includeAccidentCover ? 120 : 0);
-    return (baseRate * termDiscount) + addOns;
+    double base = (_sumInsured / 1000) * 0.15;
+    if (_includeCriticalIllness) base += 120;
+    if (_includeAccidentCover) base += 80;
+    if (_includeHospitalCash) base += 50;
+    if (_term == 2) base *= 1.8;
+    if (_term >= 3) base *= 2.5;
+    return base / (_term * 12);
   }
 
   void _onSidebarItemTap(String item) {
     switch (item) {
       case 'Dashboard':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const DashboardPage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const DashboardPage(), transitionDuration: Duration.zero));
         break;
       case 'Health Plans':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const HealthPlansPage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const HealthPlansPage(), transitionDuration: Duration.zero));
         break;
       case 'Term Life Plans':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const TermPlansPage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const TermPlansPage(), transitionDuration: Duration.zero));
         break;
       case 'Auto Insurance':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const LifeInsurancePage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const LifeInsurancePage(), transitionDuration: Duration.zero));
         break;
       case 'Get Help':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const GetHelpPage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const GetHelpPage(), transitionDuration: Duration.zero));
         break;
     }
   }
@@ -55,99 +59,23 @@ class _PremiumCalculatorPageState extends State<PremiumCalculatorPage> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final isDesktop = screenWidth >= 1100; // Increased threshold for side-by-side
-    final premium = _calculateMonthlyPremium();
-    final accentColor = const Color(0xFF2563EB); // Professional Blue
+    final isDesktop = screenWidth >= 800;
+    final monthlyPremium = _calculateMonthlyPremium();
+    final accentColor = AppColors.primary;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F5F9), // Slightly different background
+      backgroundColor: const Color(0xFFF8FAFC),
       body: Row(
         children: [
           if (isDesktop) SidebarWidget(activeItem: 'Dashboard', onItemTap: _onSidebarItemTap),
           Expanded(
             child: CustomScrollView(
               slivers: [
-                // --- HERO HEADER ---
-                SliverToBoxAdapter(
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [AppColors.primary, AppColors.primaryDark],
-                      ),
-                    ),
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          right: -50,
-                          top: -50,
-                          child: Container(
-                            width: 200,
-                            height: 200,
-                            decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.05),
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(
-                            isDesktop ? 64 : 24,
-                            isDesktop ? 80 : 48,
-                            isDesktop ? 64 : 24,
-                            isDesktop ? 80 : 48,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              InkWell(
-                                onTap: () => Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const DashboardPage(), transitionDuration: Duration.zero)),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Icon(LucideIcons.arrowLeft,
-                                        size: 16,
-                                        color: Colors.white.withOpacity(0.8)),
-                                    const SizedBox(width: 10),
-                                    Text(
-                                      'Back to Dashboard',
-                                      style: GoogleFonts.inter(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white.withOpacity(0.8),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ).animate().fadeIn(duration: 600.ms).slideX(begin: -0.2),
-                              const SizedBox(height: 32),
-                              Text(
-                                'Premium Calculator',
-                                style: GoogleFonts.inter(
-                                  color: Colors.white,
-                                  fontSize: isDesktop ? 56 : 36,
-                                  fontWeight: FontWeight.w900,
-                                  height: 1,
-                                ),
-                              ).animate().fadeIn(duration: 800.ms, delay: 200.ms).slideY(begin: 0.1),
-                              const SizedBox(height: 16),
-                              Text(
-                                'Personalize your coverage and see how it affects your cost.',
-                                style: GoogleFonts.inter(
-                                  color: Colors.white.withOpacity(0.9),
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ).animate().fadeIn(duration: 800.ms, delay: 400.ms),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                // --- HERO SECTION ---
+                const SliverToBoxAdapter(
+                  child: CalculatorHero(),
                 ),
+
 
                 // --- CONTENT REDESIGN ---
                 SliverPadding(
@@ -162,7 +90,7 @@ class _PremiumCalculatorPageState extends State<PremiumCalculatorPage> {
                               children: [
                                 Expanded(flex: 7, child: _buildModernInputPanel(accentColor)),
                                 const SizedBox(width: 32),
-                                Expanded(flex: 4, child: _buildStickyResults(premium, accentColor)),
+                                Expanded(flex: 4, child: _buildStickyResults(monthlyPremium, accentColor)),
                               ],
                             ),
                           )
@@ -170,7 +98,7 @@ class _PremiumCalculatorPageState extends State<PremiumCalculatorPage> {
                             children: [
                               _buildModernInputPanel(accentColor),
                               const SizedBox(height: 32),
-                              _buildStickyResults(premium, accentColor),
+                              _buildStickyResults(monthlyPremium, accentColor),
                             ],
                           ),
                     ),
@@ -191,7 +119,7 @@ class _PremiumCalculatorPageState extends State<PremiumCalculatorPage> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(32),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 24, offset: const Offset(0, 12)),
+          BoxShadow(color: Colors.black.withValues(alpha: 0.04), blurRadius: 24, offset: const Offset(0, 12)),
         ],
       ),
       child: Column(
@@ -283,7 +211,8 @@ class _PremiumCalculatorPageState extends State<PremiumCalculatorPage> {
           ),
         ],
       ),
-    ).animate().fadeIn(duration: 800.ms);
+    ).animate().fadeIn(duration: 400.ms);
+
   }
 
   Widget _buildCompactSliderTile({
@@ -312,9 +241,9 @@ class _PremiumCalculatorPageState extends State<PremiumCalculatorPage> {
         SliderTheme(
           data: SliderTheme.of(context).copyWith(
             activeTrackColor: accentColor,
-            inactiveTrackColor: accentColor.withOpacity(0.1),
+            inactiveTrackColor: accentColor.withValues(alpha: 0.1),
             thumbColor: Colors.white,
-            overlayColor: accentColor.withOpacity(0.1),
+            overlayColor: accentColor.withValues(alpha: 0.1),
             trackHeight: 4,
             thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8, elevation: 6),
           ),
@@ -343,7 +272,7 @@ class _PremiumCalculatorPageState extends State<PremiumCalculatorPage> {
         duration: 300.ms,
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
-          color: selected ? accentColor.withOpacity(0.05) : Colors.transparent,
+          color: selected ? accentColor.withValues(alpha: 0.05) : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: selected ? accentColor : Colors.grey.shade200, width: 2),
         ),
@@ -382,7 +311,7 @@ class _PremiumCalculatorPageState extends State<PremiumCalculatorPage> {
         color: const Color(0xFF0F172A),
         borderRadius: BorderRadius.circular(32),
         boxShadow: [
-          BoxShadow(color: const Color(0xFF0F172A).withOpacity(0.2), blurRadius: 40, offset: const Offset(0, 20)),
+          BoxShadow(color: const Color(0xFF0F172A).withValues(alpha: 0.2), blurRadius: 40, offset: const Offset(0, 20)),
         ],
       ),
       child: Column(
@@ -437,7 +366,8 @@ class _PremiumCalculatorPageState extends State<PremiumCalculatorPage> {
           ),
         ],
       ),
-    ).animate().fadeIn(duration: 800.ms, delay: 200.ms);
+    ).animate().fadeIn(duration: 400.ms, delay: 100.ms);
+
   }
 
   Widget _buildDetailRow(String label, String value) {

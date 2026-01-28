@@ -18,7 +18,7 @@ class LeftSection extends StatelessWidget {
             width: 256,
             height: 256,
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.05),
+              color: Colors.white.withValues(alpha: 0.05),
               shape: BoxShape.circle,
             ),
           ),
@@ -30,7 +30,7 @@ class LeftSection extends StatelessWidget {
             width: 192,
             height: 192,
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.05),
+              color: Colors.white.withValues(alpha: 0.05),
               shape: BoxShape.circle,
             ),
           ),

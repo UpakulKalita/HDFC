@@ -8,6 +8,7 @@ import 'package:insurance_flutter/features/dashboard/presentation/pages/health_p
 import 'package:insurance_flutter/features/dashboard/presentation/pages/term_plans_page.dart';
 import 'package:insurance_flutter/features/dashboard/presentation/pages/life_insurance_page.dart';
 import 'package:insurance_flutter/features/dashboard/presentation/pages/get_help_page.dart';
+import 'package:insurance_flutter/features/dashboard/presentation/widgets/compare_hero.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 class ComparePlansPage extends StatefulWidget {
@@ -90,19 +91,19 @@ class _ComparePlansPageState extends State<ComparePlansPage> {
   void _onSidebarItemTap(String item) {
     switch (item) {
       case 'Dashboard':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const DashboardPage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const DashboardPage(), transitionDuration: Duration.zero));
         break;
       case 'Health Plans':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const HealthPlansPage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const HealthPlansPage(), transitionDuration: Duration.zero));
         break;
       case 'Term Life Plans':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const TermPlansPage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const TermPlansPage(), transitionDuration: Duration.zero));
         break;
       case 'Auto Insurance':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const LifeInsurancePage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const LifeInsurancePage(), transitionDuration: Duration.zero));
         break;
       case 'Get Help':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const GetHelpPage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const GetHelpPage(), transitionDuration: Duration.zero));
         break;
     }
   }
@@ -122,84 +123,8 @@ class _ComparePlansPageState extends State<ComparePlansPage> {
             child: CustomScrollView(
               slivers: [
                 // --- HERO SECTION ---
-                SliverToBoxAdapter(
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [AppColors.primary, AppColors.primaryDark],
-                      ),
-                    ),
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          right: -50,
-                          top: -50,
-                          child: Container(
-                            width: 200,
-                            height: 200,
-                            decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.05),
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(
-                            isDesktop ? 64 : 24,
-                            isDesktop ? 80 : 48,
-                            isDesktop ? 64 : 24,
-                            isDesktop ? 80 : 48,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              InkWell(
-                                onTap: () => Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const DashboardPage(), transitionDuration: Duration.zero)),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Icon(LucideIcons.arrowLeft, size: 16, color: Colors.white.withOpacity(0.8)),
-                                    const SizedBox(width: 8),
-                                    Text(
-                                      'Back to Dashboard',
-                                      style: GoogleFonts.inter(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white.withOpacity(0.8),
-                                        letterSpacing: 0.5,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ).animate().fadeIn(duration: 600.ms).slideX(begin: -0.2),
-                              const SizedBox(height: 24),
-                              Text(
-                                'Plan Comparison',
-                                style: GoogleFonts.inter(
-                                  color: Colors.white,
-                                  fontSize: isDesktop ? 48 : 32,
-                                  fontWeight: FontWeight.w800,
-                                  height: 1.1,
-                                ),
-                              ).animate().fadeIn(duration: 800.ms, delay: 200.ms).slideY(begin: 0.1),
-                              const SizedBox(height: 12),
-                              Text(
-                                'Compare any two plans to see which fits your profile best.',
-                                style: GoogleFonts.inter(
-                                  color: Colors.white.withOpacity(0.9),
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ).animate().fadeIn(duration: 800.ms, delay: 400.ms),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                const SliverToBoxAdapter(
+                  child: CompareHero(),
                 ),
 
                 // --- CATEGORY FILTERS ---
@@ -243,7 +168,7 @@ class _ComparePlansPageState extends State<ComparePlansPage> {
                         border: Border.all(color: Colors.grey.shade200),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.04),
+                            color: Colors.black.withValues(alpha: 0.04),
                             blurRadius: 30,
                             offset: const Offset(0, 15),
                           ),
@@ -318,7 +243,8 @@ class _ComparePlansPageState extends State<ComparePlansPage> {
                           const SizedBox(height: 24),
                         ],
                       ),
-                    ).animate().fadeIn(duration: 800.ms).slideY(begin: 0.1),
+                    ).animate().fadeIn(duration: 400.ms).slideY(begin: 0.1),
+
                   ),
                 ),
               ],
@@ -328,6 +254,7 @@ class _ComparePlansPageState extends State<ComparePlansPage> {
       ),
     );
   }
+
 
   Widget _buildTableSelector(_PlanModel currentPlan, Function(_PlanModel) onSelected, Color activeColor) {
     return Container(
@@ -363,9 +290,9 @@ class _ComparePlansPageState extends State<ComparePlansPage> {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             margin: const EdgeInsets.only(bottom: 12),
             decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [accentColor, accentColor.withOpacity(0.7)]),
+              gradient: LinearGradient(colors: [accentColor, accentColor.withValues(alpha: 0.7)]),
               borderRadius: BorderRadius.circular(20),
-              boxShadow: [BoxShadow(color: accentColor.withOpacity(0.3), blurRadius: 10, offset: const Offset(0, 4))],
+              boxShadow: [BoxShadow(color: accentColor.withValues(alpha: 0.3), blurRadius: 10, offset: const Offset(0, 4))],
             ),
             child: Text(
               'HIGHLY RECOMMENDED',

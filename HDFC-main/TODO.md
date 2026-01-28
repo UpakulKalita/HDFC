@@ -1,9 +1,0 @@
-- [x] Modify term_page.dart to match health_plans_page.dart structure
-- [x] Update class name to TermPage
-- [x] Set activeItem to 'Term Plans'
-- [x] Update page header to 'Term Life Insurance Plans'
-- [x] Update subtitle to 'Secure your family\'s future with comprehensive term life coverage'
-- [x] Replace health plans grid with term plans grid from term_plans_page.dart
-- [x] Update search hint to 'Search term plans...'
-- [x] Update navigation in _onSidebarItemTap to match term_plans_page.dart
-- [x] Update _buildHealthPlanCard to _buildTermPlanCard with term plan content

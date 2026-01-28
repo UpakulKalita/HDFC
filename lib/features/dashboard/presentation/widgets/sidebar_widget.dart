@@ -29,7 +29,7 @@ class SidebarWidget extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primary.withOpacity(0.3),
+            color: AppColors.primary.withValues(alpha: 0.3),
             blurRadius: 10,
             offset: const Offset(2, 0),
           ),
@@ -49,7 +49,7 @@ class SidebarWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 8,
                         offset: const Offset(0, 4),
                       ),
@@ -80,17 +80,17 @@ class SidebarWidget extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
-                          color: Colors.blue.withOpacity(0.3),
+                          color: Colors.blue.withValues(alpha: 0.3),
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
-                            color: Colors.white.withOpacity(0.2),
+                            color: Colors.white.withValues(alpha: 0.2),
                             width: 0.5,
                           ),
                         ),
                         child: Text(
                           'Insurance Portal',
                           style: GoogleFonts.inter(
-                            color: Colors.white.withOpacity(0.95),
+                            color: Colors.white.withValues(alpha: 0.95),
                             fontSize: 10,
                             fontWeight: FontWeight.w600,
                             letterSpacing: 1.1,
@@ -120,7 +120,9 @@ class SidebarWidget extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   children: [
-                    const SizedBox(height: 32),
+                    const SizedBox(height: 16),
+                    Divider(color: Colors.white.withValues(alpha: 0.2), thickness: 1),
+                    const SizedBox(height: 16),
                     _sidebarMenuItem(
                       context,
                       icon: LucideIcons.layoutDashboard,
@@ -153,7 +155,7 @@ class SidebarWidget extends StatelessWidget {
                       color: Colors.red,
                     ),
                     const SizedBox(height: 32),
-                    Divider(color: Colors.white.withOpacity(0.2), thickness: 1),
+                    Divider(color: Colors.white.withValues(alpha: 0.2), thickness: 1),
                     const SizedBox(height: 16),
                     _sidebarMenuItem(
                       context,
@@ -165,11 +167,21 @@ class SidebarWidget extends StatelessWidget {
                     const SizedBox(height: 8),
                     _sidebarMenuItem(
                       context,
+                      icon: LucideIcons.fileText,
+                      title: 'My Policies',
+                      isActive: activeItem == 'My Policies',
+                      color: Colors.teal,
+                    ),
+                    const SizedBox(height: 8),
+                    _sidebarMenuItem(
+                      context,
                       icon: LucideIcons.user,
-                      title: 'Profile',
-                      isActive: activeItem == 'Profile',
+                      title: 'My Profile',
+                      isActive: activeItem == 'My Profile',
                       color: Colors.indigo,
                     ),
+                    const SizedBox(height: 16),
+                    Divider(color: Colors.white.withValues(alpha: 0.2), thickness: 1),
                     const SizedBox(height: 20),
                   ],
                 ),
@@ -183,37 +195,11 @@ class SidebarWidget extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        LucideIcons.lightbulb,
-                        color: Colors.amber,
-                        size: 20,
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Text(
-                          'Need assistance? Contact our support team.',
-                          style: GoogleFonts.inter(
-                            color: Colors.white,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 16),
+
                 Text(
                   '© 2026 HDFC Bank',
                   style: GoogleFonts.inter(
-                    color: Colors.white.withOpacity(0.7),
+                    color: Colors.white.withValues(alpha: 0.7),
                     fontSize: 11,
                   ),
                 ),
@@ -235,10 +221,10 @@ class SidebarWidget extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 4),
       decoration: BoxDecoration(
-        color: isActive ? Colors.white.withOpacity(0.15) : Colors.transparent,
+        color: isActive ? Colors.white.withValues(alpha: 0.15) : Colors.transparent,
         borderRadius: BorderRadius.circular(12),
         border: isActive
-            ? Border.all(color: Colors.white.withOpacity(0.3), width: 1)
+            ? Border.all(color: Colors.white.withValues(alpha: 0.3), width: 1)
             : null,
       ),
       child: ListTile(
@@ -246,7 +232,7 @@ class SidebarWidget extends StatelessWidget {
         leading: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: isActive ? Colors.white.withOpacity(0.2) : color.withOpacity(0.2),
+            color: isActive ? Colors.white.withValues(alpha: 0.2) : color.withValues(alpha: 0.2),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Icon(
@@ -258,7 +244,7 @@ class SidebarWidget extends StatelessWidget {
         title: Text(
           title,
           style: GoogleFonts.inter(
-            color: isActive ? Colors.white : Colors.white.withOpacity(0.9),
+            color: isActive ? Colors.white : Colors.white.withValues(alpha: 0.9),
             fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
             fontSize: 14,
           ),

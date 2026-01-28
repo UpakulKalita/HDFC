@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:insurance_flutter/core/constants/app_colors.dart';
+
+
 import 'package:insurance_flutter/features/auth/presentation/pages/login_page.dart';
 import 'package:insurance_flutter/features/dashboard/presentation/pages/health_plans_page.dart';
 import 'package:insurance_flutter/features/dashboard/presentation/pages/term_plans_page.dart';
 import 'package:insurance_flutter/features/dashboard/presentation/pages/life_insurance_page.dart';
 import 'package:insurance_flutter/features/dashboard/presentation/pages/get_help_page.dart';
-import 'package:insurance_flutter/features/dashboard/presentation/pages/settings_page.dart';
 import 'package:insurance_flutter/features/dashboard/presentation/pages/profile_page.dart';
 
 class TopBarWidget extends StatefulWidget implements PreferredSizeWidget {
@@ -39,7 +39,7 @@ class _TopBarWidgetState extends State<TopBarWidget> {
         Navigator.push(
           context,
           PageRouteBuilder(
-            pageBuilder: (_, __, ___) => const HealthPlansPage(),
+            pageBuilder: (_, _, _) => const HealthPlansPage(),
             transitionDuration: Duration.zero,
             reverseTransitionDuration: Duration.zero,
           ),
@@ -49,7 +49,7 @@ class _TopBarWidgetState extends State<TopBarWidget> {
         Navigator.push(
           context,
           PageRouteBuilder(
-            pageBuilder: (_, __, ___) => const TermPlansPage(),
+            pageBuilder: (_, _, _) => const TermPlansPage(),
             transitionDuration: Duration.zero,
             reverseTransitionDuration: Duration.zero,
           ),
@@ -59,7 +59,7 @@ class _TopBarWidgetState extends State<TopBarWidget> {
         Navigator.push(
           context,
           PageRouteBuilder(
-            pageBuilder: (_, __, ___) => const LifeInsurancePage(),
+            pageBuilder: (_, _, _) => const LifeInsurancePage(),
             transitionDuration: Duration.zero,
             reverseTransitionDuration: Duration.zero,
           ),
@@ -69,17 +69,7 @@ class _TopBarWidgetState extends State<TopBarWidget> {
         Navigator.push(
           context,
           PageRouteBuilder(
-            pageBuilder: (_, __, ___) => const GetHelpPage(),
-            transitionDuration: Duration.zero,
-            reverseTransitionDuration: Duration.zero,
-          ),
-        );
-        break;
-      case 'Settings':
-        Navigator.push(
-          context,
-          PageRouteBuilder(
-            pageBuilder: (_, __, ___) => const SettingsPage(),
+            pageBuilder: (_, _, _) => const GetHelpPage(),
             transitionDuration: Duration.zero,
             reverseTransitionDuration: Duration.zero,
           ),
@@ -89,7 +79,7 @@ class _TopBarWidgetState extends State<TopBarWidget> {
         Navigator.push(
           context,
           PageRouteBuilder(
-            pageBuilder: (_, __, ___) => const ProfilePage(),
+            pageBuilder: (_, _, _) => const ProfilePage(),
             transitionDuration: Duration.zero,
             reverseTransitionDuration: Duration.zero,
           ),
@@ -148,7 +138,7 @@ class _TopBarWidgetState extends State<TopBarWidget> {
             Navigator.push(
               context,
               PageRouteBuilder(
-                pageBuilder: (_, __, ___) => const ProfilePage(),
+                pageBuilder: (_, _, _) => const ProfilePage(),
                 transitionDuration: Duration.zero,
                 reverseTransitionDuration: Duration.zero,
               ),

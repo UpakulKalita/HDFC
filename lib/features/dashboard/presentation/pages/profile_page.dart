@@ -7,6 +7,12 @@ import 'package:insurance_flutter/features/dashboard/presentation/pages/health_p
 import 'package:insurance_flutter/features/dashboard/presentation/pages/term_plans_page.dart';
 import 'package:insurance_flutter/features/dashboard/presentation/pages/life_insurance_page.dart';
 import 'package:insurance_flutter/features/dashboard/presentation/pages/get_help_page.dart';
+import 'package:insurance_flutter/features/dashboard/presentation/widgets/profile_hero.dart';
+import 'package:insurance_flutter/features/dashboard/presentation/widgets/premium_card.dart';
+import 'package:insurance_flutter/features/dashboard/presentation/widgets/modern_field.dart';
+import 'package:insurance_flutter/features/dashboard/presentation/widgets/modern_dropdown.dart';
+import 'package:insurance_flutter/features/dashboard/presentation/widgets/counter_field.dart';
+import 'package:insurance_flutter/features/dashboard/presentation/widgets/profile_strength_indicator.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
@@ -34,21 +40,19 @@ class _ProfilePageState extends State<ProfilePage> {
   void _onSidebarItemTap(String item) {
     switch (item) {
       case 'Dashboard':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => DashboardPage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => DashboardPage(), transitionDuration: Duration.zero));
         break;
       case 'Health Plans':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const HealthPlansPage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const HealthPlansPage(), transitionDuration: Duration.zero));
         break;
       case 'Term Life Plans':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const TermPlansPage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const TermPlansPage(), transitionDuration: Duration.zero));
         break;
       case 'Auto Insurance':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const LifeInsurancePage(), transitionDuration: Duration.zero));
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const LifeInsurancePage(), transitionDuration: Duration.zero));
         break;
       case 'Get Help':
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const GetHelpPage(), transitionDuration: Duration.zero));
-        break;
-      case 'Settings':
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const GetHelpPage(), transitionDuration: Duration.zero));
         break;
       case 'Profile':
         break;
@@ -86,7 +90,12 @@ class _ProfilePageState extends State<ProfilePage> {
               slivers: [
                 // --- PREMIUM HERO HEADER ---
                 SliverToBoxAdapter(
-                  child: _buildHeroHeader(completion, isDesktop),
+                  child: ProfileHero(
+                    completion: completion,
+                    isDesktop: isDesktop,
+                    onBackTap: () => Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, _, _) => const DashboardPage(), transitionDuration: Duration.zero)),
+                    onSaveTap: () {},
+                  ),
                 ),
 
                 // --- MAIN CONTENT GRID ---
@@ -105,7 +114,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               runSpacing: 24,
                               children: [
                                 // Bento Card 1: Account Info
-                                _buildPremiumCard(
+                                PremiumCard(
                                   title: 'Account Information',
                                   icon: LucideIcons.user,
                                   width: isDesktop ? (constraints.maxWidth - 24) * 0.6 : constraints.maxWidth,
@@ -115,8 +124,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                       Expanded(
                                         child: Column(
                                           children: [
-                                            _buildModernField('Full Name', _nameController, LucideIcons.user),
-                                            _buildModernField('Email Address', _emailController, LucideIcons.mail),
+                                            ModernField(label: 'Full Name', controller: _nameController, icon: LucideIcons.user),
+                                            ModernField(label: 'Email Address', controller: _emailController, icon: LucideIcons.mail),
                                           ],
                                         ),
                                       ),
@@ -124,8 +133,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                       Expanded(
                                         child: Column(
                                           children: [
-                                            _buildModernField('Phone Number', _phoneController, LucideIcons.phone),
-                                            _buildModernField('Date of Birth', TextEditingController(text: '12 May 1995'), LucideIcons.calendar),
+                                            ModernField(label: 'Phone Number', controller: _phoneController, icon: LucideIcons.phone),
+                                            ModernField(label: 'Date of Birth', controller: TextEditingController(text: '12 May 1995'), icon: LucideIcons.calendar),
                                           ],
                                         ),
                                       ),
@@ -134,14 +143,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ).animate().fadeIn(duration: 600.ms, delay: 400.ms).slideY(begin: 0.1),
 
                                 // Bento Card 2: Profile Strength
-                                _buildPremiumCard(
+                                PremiumCard(
                                   title: 'Profile Status',
                                   titleColor: AppColors.primary,
                                   icon: LucideIcons.activity,
                                   width: isDesktop ? (constraints.maxWidth - 24) * 0.4 - 1 : constraints.maxWidth,
                                   child: Column(
                                     children: [
-                                      _buildStrengthIndicator(completion),
+                                      ProfileStrengthIndicator(completion: completion),
                                       const SizedBox(height: 24),
                                       _buildStatusItem(LucideIcons.shieldCheck, 'Verified Account', Colors.green),
                                       _buildStatusItem(LucideIcons.zap, 'Instant Matching On', Colors.orange),
@@ -150,31 +159,31 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ).animate().fadeIn(duration: 600.ms, delay: 500.ms).slideY(begin: 0.1),
 
                                 // Bento Card 3: Lifestyle & Insurance
-                                _buildPremiumCard(
+                                PremiumCard(
                                   title: 'Insurance Profile',
                                   icon: LucideIcons.shieldCheck,
                                   width: isDesktop ? (constraints.maxWidth - 24) * 0.5 : constraints.maxWidth,
                                   child: Column(
                                     children: [
-                                      _buildModernDropdown('Marital Status', _maritalStatus, ['Single', 'Married', 'Divorced', 'Widowed'], (val) => setState(() => _maritalStatus = val!)),
-                                      _buildModernDropdown('Tobacco / Smoking', _tobacco, ['No', 'Yes', 'Occasional'], (val) => setState(() => _tobacco = val!)),
-                                      _buildModernField('Occupation', TextEditingController(text: _occupation), LucideIcons.briefcase, onChanged: (val) => _occupation = val),
+                                      ModernDropdown(label: 'Marital Status', value: _maritalStatus, items: const ['Single', 'Married', 'Divorced', 'Widowed'], onChanged: (val) => setState(() => _maritalStatus = val!)),
+                                      ModernDropdown(label: 'Tobacco / Smoking', value: _tobacco, items: const ['No', 'Yes', 'Occasional'], onChanged: (val) => setState(() => _tobacco = val!)),
+                                      ModernField(label: 'Occupation', controller: TextEditingController(text: _occupation), icon: LucideIcons.briefcase, onChanged: (val) => _occupation = val),
                                     ],
                                   ),
                                 ).animate().fadeIn(duration: 600.ms, delay: 600.ms).slideY(begin: 0.1),
 
                                 // Bento Card 4: Dependents & Family
-                                _buildPremiumCard(
+                                PremiumCard(
                                   title: 'Family & Dependents',
                                   icon: LucideIcons.users,
                                   width: isDesktop ? (constraints.maxWidth - 24) * 0.5 - 1 : constraints.maxWidth,
                                   child: Column(
                                     children: [
-                                      _buildCounterField('Number of Children', _children, (val) => setState(() => _children = val)),
+                                      CounterField(label: 'Number of Children', value: _children, onChanged: (val) => setState(() => _children = val)),
                                       const SizedBox(height: 20),
-                                      _buildCounterField('Dependent Parents', _dependentParents, (val) => setState(() => _dependentParents = val)),
+                                      CounterField(label: 'Dependent Parents', value: _dependentParents, onChanged: (val) => setState(() => _dependentParents = val)),
                                       const SizedBox(height: 20),
-                                      _buildModernDropdown('Annual Income', _income, ['< ₹5L', '₹5L - ₹10L', '₹10L - ₹15L', '₹15L+'], (val) => setState(() => _income = val!)),
+                                      ModernDropdown(label: 'Annual Income', value: _income, items: const ['< ₹5L', '₹5L - ₹10L', '₹10L - ₹15L', '₹15L+'], onChanged: (val) => setState(() => _income = val!)),
                                     ],
                                   ),
                                 ).animate().fadeIn(duration: 600.ms, delay: 700.ms).slideY(begin: 0.1),
@@ -196,202 +205,6 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _buildHeroHeader(double completion, bool isDesktop) {
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [AppColors.primary, AppColors.primaryDark],
-        ),
-      ),
-      child: Stack(
-        children: [
-          // Background Circle Decoration
-          Positioned(
-            right: -50,
-            top: -50,
-            child: Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.05),
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          
-          // Content
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: isDesktop ? 64 : 24,
-              vertical: isDesktop ? 80 : 48,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Back to Dashboard Button
-                InkWell(
-                  onTap: () => Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_, __, ___) => const DashboardPage(), transitionDuration: Duration.zero)),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(LucideIcons.arrowLeft, size: 16, color: Colors.white.withOpacity(0.8)),
-                      const SizedBox(width: 8),
-                      Text(
-                        'Back to Dashboard',
-                        style: GoogleFonts.inter(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white.withOpacity(0.8),
-                          letterSpacing: 0.5,
-                        ),
-                      ),
-                    ],
-                  ),
-                ).animate().fadeIn(duration: 600.ms).slideX(begin: -0.2),
-
-                const SizedBox(height: 24),
-                Text(
-                  'Profile Settings',
-                  style: GoogleFonts.inter(
-                    color: Colors.white.withOpacity(0.8),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 1.2,
-                  ),
-                ).animate().fadeIn(duration: 600.ms, delay: 200.ms).slideX(begin: -0.2),
-                const SizedBox(height: 12),
-                Row(
-                  children: [
-                    Text(
-                      'My Profile',
-                      style: GoogleFonts.inter(
-                        color: Colors.white,
-                        fontSize: isDesktop ? 48 : 32,
-                        fontWeight: FontWeight.w800,
-                        height: 1.1,
-                      ),
-                    ).animate().fadeIn(duration: 800.ms, delay: 200.ms).slideY(begin: 0.1),
-                    const Spacer(),
-                    ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(LucideIcons.save, size: 18, color: AppColors.primary),
-                      label: const Text('Save Changes'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: AppColors.primary,
-                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                        elevation: 0,
-                        textStyle: GoogleFonts.inter(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ).animate().fadeIn(duration: 600.ms, delay: 400.ms),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildHeroStat(String label, String value) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          value,
-          style: GoogleFonts.inter(
-            color: Colors.white,
-            fontSize: 18,
-            fontWeight: FontWeight.w800,
-          ),
-        ),
-        Text(
-          label,
-          style: GoogleFonts.inter(
-            color: Colors.white54,
-            fontSize: 12,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildHeroDivider() {
-    return Container(
-      height: 24,
-      width: 1,
-      color: Colors.white12,
-      margin: const EdgeInsets.symmetric(horizontal: 24),
-    );
-  }
-
-  Widget _buildPremiumCard({
-    required String title,
-    Color? titleColor,
-    required IconData icon,
-    required Widget child,
-    required double width,
-  }) {
-    return Container(
-      width: width,
-      padding: const EdgeInsets.all(28),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(28),
-        border: Border.all(color: Colors.grey.shade100),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.04),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: AppColors.primary.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Icon(icon, size: 20, color: AppColors.primary),
-              ),
-              const SizedBox(width: 16),
-              Text(
-                title,
-                style: GoogleFonts.inter(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w800,
-                  color: titleColor ?? const Color(0xFF1E293B),
-                ),
-              ),
-              const Spacer(),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(LucideIcons.moreHorizontal, size: 20, color: Colors.grey),
-              ),
-            ],
-          ),
-          const SizedBox(height: 32),
-          child,
-        ],
-      ),
-    );
-  }
-
   Widget _buildStatusItem(IconData icon, String label, Color color) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
@@ -409,183 +222,6 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildStrengthIndicator(double completion) {
-    return Column(
-      children: [
-        Stack(
-          alignment: Alignment.center,
-          children: [
-            SizedBox(
-              height: 120,
-              width: 120,
-              child: CircularProgressIndicator(
-                value: completion,
-                strokeWidth: 10,
-                backgroundColor: Colors.grey.shade100,
-                valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
-              ),
-            ),
-            Column(
-              children: [
-                Text(
-                  '${(completion * 100).toInt()}%',
-                  style: GoogleFonts.inter(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w900,
-                    color: AppColors.primary,
-                  ),
-                ),
-                Text(
-                  'Complete',
-                  style: GoogleFonts.inter(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.grey,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget _buildModernField(String label, TextEditingController controller, IconData icon, {Function(String)? onChanged}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            style: GoogleFonts.inter(
-              fontSize: 13,
-              fontWeight: FontWeight.w700,
-              color: Colors.grey.shade600,
-              letterSpacing: 0.5,
-            ),
-          ),
-          const SizedBox(height: 10),
-          TextField(
-            controller: controller,
-            onChanged: onChanged,
-            decoration: InputDecoration(
-              prefixIcon: Icon(icon, size: 18, color: AppColors.primary.withOpacity(0.5)),
-              filled: true,
-              fillColor: const Color(0xFFF8FAFC),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.grey.shade200),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.grey.shade200),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: AppColors.primary),
-              ),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
-            ),
-            style: GoogleFonts.inter(
-              fontSize: 15,
-              fontWeight: FontWeight.w600,
-              color: const Color(0xFF1E293B),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildModernDropdown(String label, String value, List<String> items, Function(String?) onTap) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            style: GoogleFonts.inter(
-              fontSize: 13,
-              fontWeight: FontWeight.w700,
-              color: Colors.grey.shade600,
-              letterSpacing: 0.5,
-            ),
-          ),
-          const SizedBox(height: 10),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            decoration: BoxDecoration(
-              color: const Color(0xFFF8FAFC),
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.grey.shade200),
-            ),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                value: value,
-                isExpanded: true,
-                icon: const Icon(LucideIcons.chevronDown, size: 18),
-                items: items.map((item) {
-                  return DropdownMenuItem(
-                    value: item,
-                    child: Text(
-                      item,
-                      style: GoogleFonts.inter(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                        color: const Color(0xFF1E293B),
-                      ),
-                    ),
-                  );
-                }).toList(),
-                onChanged: onTap,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildCounterField(String label, int value, Function(int) onChanged) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: GoogleFonts.inter(
-            fontSize: 13,
-            fontWeight: FontWeight.w700,
-            color: Colors.grey.shade600,
-            letterSpacing: 0.5,
-          ),
-        ),
-        const SizedBox(height: 10),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-          decoration: BoxDecoration(
-            color: const Color(0xFFF8FAFC),
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: Colors.grey.shade200),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(onPressed: () => onChanged(value > 0 ? value - 1 : 0), icon: const Icon(LucideIcons.minusCircle, size: 20, color: Colors.grey)),
-              Text(
-                value.toString(),
-                style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.w800, color: const Color(0xFF1E293B)),
-              ),
-              IconButton(onPressed: () => onChanged(value + 1), icon: const Icon(LucideIcons.plusCircle, size: 20, color: AppColors.primary)),
-            ],
-          ),
-        ),
-      ],
     );
   }
 }
