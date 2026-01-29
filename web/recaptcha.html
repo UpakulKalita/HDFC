@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>reCAPTCHA v3</title>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le3gkwsAAAAAI5i_7I9pUCg5gfFO_yUCPF9VnOz"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        console.log("ReCAPTCHA iframe loaded");
+        // Listen for messages from Flutter
+        window.addEventListener("message", function (event) {
+            if (event.data && event.data.action === "execute") {
+                console.log("ReCAPTCHA iframe received execute command");
+                grecaptcha.ready(function () {
+                    console.log("ReCAPTCHA executing...");
+                    grecaptcha.execute('6Le3gkwsAAAAAI5i_7I9pUCg5gfFO_yUCPF9VnOz', { action: 'login' }).then(function (token) {
+                        console.log("ReCAPTCHA token received");
+                        // Send token back to Flutter
+                        if (window.parent) {
+                            window.parent.postMessage({ 'recaptchaToken': token }, "*");
+                        }
+                    }, function (error) {
+                        console.error("ReCAPTCHA execute error:", error);
+                    });
+                });
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

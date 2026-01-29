@@ -1,0 +1,125 @@
+﻿Analyzing HDFC-upakul...                                        
+
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\dashboard_home_content.dart:111:53 - deprecated_member_use
+  error - Target of URI doesn't exist: '../../../../../../core/constants/app_colors.dart' - dashboard_backup\presentation\widgets\content\dashboard_quick_actions.dart:3:8 - uri_does_not_exist
+  error - Invalid constant value - dashboard_backup\presentation\widgets\content\dashboard_quick_actions.dart:18:20 - invalid_constant
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\content\dashboard_quick_actions.dart:18:20 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\dashboard_quick_actions.dart:88:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\dashboard_quick_actions.dart:88:80 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\dashboard_quick_actions.dart:93:51 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\dashboard_quick_actions.dart:93:84 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\dashboard_quick_actions.dart:106:39 - deprecated_member_use
+  error - Invalid constant value - dashboard_backup\presentation\widgets\content\dashboard_quick_actions.dart:124:26 - invalid_constant
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\content\dashboard_quick_actions.dart:124:26 - undefined_identifier
+  error - Target of URI doesn't exist: '/../core/constants/app_colors.dart' - dashboard_backup\presentation\widgets\content\footer.dart:2:8 - uri_does_not_exist
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\content\footer.dart:13:18 - undefined_identifier
+  error - Target of URI doesn't exist: '/core/constants/app_colors.dart' - dashboard_backup\presentation\widgets\content\plan_card.dart:3:8 - uri_does_not_exist
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\content\plan_card.dart:36:19 - undefined_identifier
+   info - 'scaled' is deprecated and shouldn't be used. Use scaledByVector3, scaledByVector4, or scaledByDouble instead - dashboard_backup\presentation\widgets\content\plan_card.dart:38:53 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\plan_card.dart:44:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\plan_card.dart:44:78 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\plan_card.dart:49:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\plan_card.dart:49:82 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\plan_card.dart:55:37 - deprecated_member_use
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\content\plan_card.dart:67:25 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\plan_card.dart:76:39 - deprecated_member_use
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\content\plan_card.dart:90:35 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\plan_card.dart:93:76 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\plan_card.dart:154:57 - deprecated_member_use
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\content\plan_card.dart:192:35 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\plan_card.dart:199:51 - deprecated_member_use
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\content\plan_card.dart:217:41 - undefined_identifier
+   info - The private field _age could be 'final' - dashboard_backup\presentation\widgets\content\premium_calculator_widget.dart:20:7 - prefer_final_fields
+   info - The private field _income could be 'final' - dashboard_backup\presentation\widgets\content\premium_calculator_widget.dart:21:10 - prefer_final_fields
+  error - Target of URI doesn't exist: '/../core/constants/app_colors.dart' - dashboard_backup\presentation\widgets\content\section_title.dart:2:8 - uri_does_not_exist
+  error - Invalid constant value - dashboard_backup\presentation\widgets\content\section_title.dart:19:16 - invalid_constant
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\content\section_title.dart:19:16 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\content\user_profile_insight_card.dart:31:33 - deprecated_member_use
+  error - Target of URI doesn't exist: '/../core/constants/app_colors.dart' - dashboard_backup\presentation\widgets\layout\dashboard_layout.dart:2:8 - uri_does_not_exist
+  error - Target of URI doesn't exist: '/../core/constants/app_colors.dart' - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:6:8 - uri_does_not_exist
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:80:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:88:30 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:89:30 - deprecated_member_use
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:94:24 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:127:41 - undefined_identifier
+  error - Invalid constant value - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:156:44 - invalid_constant
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:156:44 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:199:43 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:211:25 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:215:41 - deprecated_member_use
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:230:47 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:241:39 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:241:60 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:258:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:279:31 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_sidebar.dart:280:32 - deprecated_member_use
+  error - Target of URI doesn't exist: '/core/constants/app_colors.dart' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:3:8 - uri_does_not_exist
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:69:44 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:79:44 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:91:40 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:113:29 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:122:38 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:123:38 - deprecated_member_use
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:129:32 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:136:29 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:137:42 - deprecated_member_use
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:154:58 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:154:79 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:163:37 - undefined_identifier
+  error - Invalid constant value - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:176:81 - invalid_constant
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:176:81 - undefined_identifier
+  error - Invalid constant value - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:178:81 - invalid_constant
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:178:81 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:223:21 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:231:30 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:232:30 - deprecated_member_use
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:237:36 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:237:87 - deprecated_member_use
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:241:24 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:253:38 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:253:62 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:339:45 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:342:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:347:49 - deprecated_member_use
+   info - Don't invoke 'print' in production code - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:360:31 - avoid_print
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:407:23 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:416:32 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:417:32 - deprecated_member_use
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:422:54 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:422:105 - deprecated_member_use
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:426:26 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:437:29 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:442:59 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:448:38 - undefined_identifier
+  error - Invalid constant value - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:473:34 - invalid_constant
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:473:34 - undefined_identifier
+  error - Undefined name 'AppColors' - dashboard_backup\presentation\widgets\navigation\dashboard_topbar.dart:488:59 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\constants\app_colors.dart:109:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\constants\app_colors.dart:110:53 - deprecated_member_use
+warning - Unused import: 'dart:math' - lib\features\auth\presentation\controller\auth_controller.dart:1:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\presentation\widgets\feature_item.dart:23:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\presentation\widgets\left_section.dart:23:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\presentation\widgets\left_section.dart:35:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\presentation\widgets\login_card.dart:22:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\presentation\widgets\login_card.dart:27:36 - deprecated_member_use
+warning - Unused import: 'package:insurance_flutter/core/constants/app_colors.dart' - lib\features\auth\presentation\widgets\login_form.dart:4:8 - unused_import
+   info - 'dart:html' is deprecated and shouldn't be used. Use package:web and dart:js_interop instead - lib\features\auth\presentation\widgets\recaptcha_widget.dart:2:1 - deprecated_member_use
+   info - Don't use web-only libraries outside Flutter web plugins - lib\features\auth\presentation\widgets\recaptcha_widget.dart:2:1 - avoid_web_libraries_in_flutter
+  error - Invalid constant value - lib\features\dashboard\presentation\widgets\quick_actions_card.dart:22:13 - invalid_constant
+  error - The values in a const list literal must be constants - lib\features\dashboard\presentation\widgets\quick_actions_card.dart:22:13 - non_constant_list_element
+  error - The getter 'backgroundLight' isn't defined for the type 'AppColors' - lib\features\dashboard\presentation\widgets\quick_actions_card.dart:22:23 - undefined_getter
+  error - The getter 'cardShadow' isn't defined for the type 'AppColors' - lib\features\dashboard\presentation\widgets\quick_actions_card.dart:29:30 - undefined_getter
+  error - The getter 'iconContainerBg' isn't defined for the type 'AppColors' - lib\features\dashboard\presentation\widgets\quick_actions_card.dart:105:32 - undefined_getter
+  error - The getter 'textPrimary' isn't defined for the type 'AppColors' - lib\features\dashboard\presentation\widgets\quick_actions_card.dart:120:38 - undefined_getter
+  error - The getter 'textSecondary' isn't defined for the type 'AppColors' - lib\features\dashboard\presentation\widgets\quick_actions_card.dart:127:38 - undefined_getter
+  error - Invalid constant value - lib\features\dashboard\presentation\widgets\welcome_card.dart:18:13 - invalid_constant
+  error - The values in a const list literal must be constants - lib\features\dashboard\presentation\widgets\welcome_card.dart:18:13 - non_constant_list_element
+  error - The getter 'backgroundLight' isn't defined for the type 'AppColors' - lib\features\dashboard\presentation\widgets\welcome_card.dart:18:23 - undefined_getter
+  error - The getter 'cardShadow' isn't defined for the type 'AppColors' - lib\features\dashboard\presentation\widgets\welcome_card.dart:25:30 - undefined_getter
+  error - The getter 'iconContainerBg' isn't defined for the type 'AppColors' - lib\features\dashboard\presentation\widgets\welcome_card.dart:36:32 - undefined_getter
+  error - The getter 'textPrimary' isn't defined for the type 'AppColors' - lib\features\dashboard\presentation\widgets\welcome_card.dart:56:38 - undefined_getter
+  error - The getter 'textSecondary' isn't defined for the type 'AppColors' - lib\features\dashboard\presentation\widgets\welcome_card.dart:64:38 - undefined_getter
+  error - The named parameter 'localDataSource' is required, but there's no corresponding argument - lib\main.dart:22:77 - missing_required_argument
+warning - Duplicate import - test\auth_controller_test.dart:3:8 - duplicate_import
+warning - Unused import: 'package:flutter/material.dart' - test\widget_test.dart:8:8 - unused_import
+
